@@ -1,0 +1,27 @@
+{
+  "name": "hans-peter-ording/espn-api-client",
+  "type": "library",
+  "description": "Client library to consume the inofficial ESPN API and transform results into data transfer objects.",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.0",
+    "symfony/serializer": "^6.0|^7.0",
+    "symfony/property-access": "^6.0|^7.0",
+    "psr/http-client": "^1.0@dev",
+    "php-http/discovery": "^1.9@dev",
+    "php-http/logger-plugin": "^1.2@dev"
+  },
+  "require-dev": {},
+  "autoload": {
+    "psr-4": {
+      "HansPeterOrding\\EspnApiClient\\": "src/"
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": { "HansPeterOrding\\EspnApiClient\\Tests\\": "tests/" }
+  },
+  "minimum-stability": "dev"
+}
