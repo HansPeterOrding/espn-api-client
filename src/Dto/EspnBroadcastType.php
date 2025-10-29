@@ -7,7 +7,7 @@ namespace HansPeterOrding\EspnApiClient\Dto;
 final class EspnBroadcastType
 {
     private string $id;
-    private string $shortNme;
+    private string $shortName;
 
     public function getId(): string
     {
@@ -20,14 +20,14 @@ final class EspnBroadcastType
         return $this;
     }
 
-    public function getShortNme(): string
+    public function getShortName(): string
     {
-        return $this->shortNme;
+        return $this->shortName;
     }
 
-    public function setShortNme(string $shortNme): EspnBroadcastType
+    public function setShortName(string $shortName): EspnBroadcastType
     {
-        $this->shortNme = $shortNme;
+        $this->shortName = $shortName;
         return $this;
     }
 }

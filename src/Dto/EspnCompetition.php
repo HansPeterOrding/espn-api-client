@@ -10,7 +10,7 @@ final class EspnCompetition
     private \DateTime $date;
     private int $attendance;
     private EspnCompetitionType $type;
-    private bool $typeValid;
+    private bool $timeValid;
     private bool $neutralSite;
     private bool $boxscoreAvailable;
     private bool $ticketsAvailable;
@@ -76,14 +76,14 @@ final class EspnCompetition
         return $this;
     }
 
-    public function isTypeValid(): bool
+    public function isTimeValid(): bool
     {
-        return $this->typeValid;
+        return $this->timeValid;
     }
 
-    public function setTypeValid(bool $typeValid): EspnCompetition
+    public function setTimeValid(bool $timeValid): EspnCompetition
     {
-        $this->typeValid = $typeValid;
+        $this->timeValid = $timeValid;
         return $this;
     }
 

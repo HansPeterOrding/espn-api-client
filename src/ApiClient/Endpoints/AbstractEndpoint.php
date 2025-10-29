@@ -15,7 +15,7 @@ abstract class AbstractEndpoint
     {
     }
 
-    public function uri(string $path, $attributes = [], string $baseUri = EspnApiClientInterface::BASE_URI): UriInterface
+    public function uri(string $path, $attributes = [], string $baseUri = EspnApiClientInterface::BASE_URI_SITE): UriInterface
     {
         $uri = $baseUri . $path;
         if ($attributes) {

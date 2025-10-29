@@ -9,7 +9,7 @@ final class EspnVenue
     private ?string $id = null;
     private ?string $guid = null;
     private string $fullName;
-    private EspnVenueAddress $address;
+    private ?EspnVenueAddress $address = null;
     private ?bool $grass = null;
     private ?bool $indoor = null;
 
@@ -51,12 +51,12 @@ final class EspnVenue
         return $this;
     }
 
-    public function getAddress(): EspnVenueAddress
+    public function getAddress(): ?EspnVenueAddress
     {
         return $this->address;
     }
 
-    public function setAddress(EspnVenueAddress $address): EspnVenue
+    public function setAddress(?EspnVenueAddress $address): EspnVenue
     {
         $this->address = $address;
         return $this;

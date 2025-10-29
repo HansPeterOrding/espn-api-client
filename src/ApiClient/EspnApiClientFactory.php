@@ -67,15 +67,19 @@ class EspnApiClientFactory
         );
 
         $encoders = [new JsonEncoder()];
+        $defaultDateTimeContext = [
+            DateTimeNormalizer::FORMAT_KEY   => 'Y-m-d\TH:i\Z',   // Sekundenlos, 'Z' ist literal → escapen!
+            DateTimeNormalizer::TIMEZONE_KEY => new \DateTimeZone('UTC'),
+        ];
         $normalizers = [
             new UnwrappingDenormalizer(),
+            new DateTimeNormalizer($defaultDateTimeContext),
             new ObjectNormalizer(
                 null,
                 new CamelCaseToSnakeCaseNameConverter(),
                 null,
                 propertyTypeExtractor: $propertyInfo
             ),
-            new DateTimeNormalizer(),
             new ArrayDenormalizer(),
 
         ];

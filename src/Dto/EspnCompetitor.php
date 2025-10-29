@@ -11,10 +11,10 @@ final class EspnCompetitor
     private string $id;
     private string $type;
     private int $order;
-    private string $homeAray;
-    private bool $winner;
+    private string $homeAway;
+    private ?bool $winner = null;
     private EspnTeam $team;
-    private EspnCompetitorScore $score;
+    private ?EspnCompetitorScore $score = null;
 
     public function getId(): string
     {
@@ -49,23 +49,23 @@ final class EspnCompetitor
         return $this;
     }
 
-    public function getHomeAray(): string
+    public function getHomeAway(): string
     {
-        return $this->homeAray;
+        return $this->homeAway;
     }
 
-    public function setHomeAray(string $homeAray): EspnCompetitor
+    public function setHomeAway(string $homeAway): EspnCompetitor
     {
-        $this->homeAray = $homeAray;
+        $this->homeAway = $homeAway;
         return $this;
     }
 
-    public function isWinner(): bool
+    public function isWinner(): ?bool
     {
         return $this->winner;
     }
 
-    public function setWinner(bool $winner): EspnCompetitor
+    public function setWinner(?bool $winner): EspnCompetitor
     {
         $this->winner = $winner;
         return $this;
@@ -82,12 +82,12 @@ final class EspnCompetitor
         return $this;
     }
 
-    public function getScore(): EspnCompetitorScore
+    public function getScore(): ?EspnCompetitorScore
     {
         return $this->score;
     }
 
-    public function setScore(EspnCompetitorScore $score): EspnCompetitor
+    public function setScore(?EspnCompetitorScore $score): EspnCompetitor
     {
         $this->score = $score;
         return $this;

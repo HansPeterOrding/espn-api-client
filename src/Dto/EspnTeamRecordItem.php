@@ -6,45 +6,45 @@ namespace HansPeterOrding\EspnApiClient\Dto;
 
 final class EspnTeamRecordItem
 {
-    private string $description;
+    private ?string $description = null;
 
-    private string $type;
+    private ?string $type = null;
 
-    private string $summary;
+    private ?string $summary = null;
 
     /**
      * @var EspnTeamRecordStat[]
      */
     private array $stats = [];
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function setDescription(string $description): EspnTeamRecordItem
+    public function setDescription(?string $description): EspnTeamRecordItem
     {
         $this->description = $description;
         return $this;
     }
 
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
 
-    public function setType(string $type): EspnTeamRecordItem
+    public function setType(?string $type): EspnTeamRecordItem
     {
         $this->type = $type;
         return $this;
     }
 
-    public function getSummary(): string
+    public function getSummary(): ?string
     {
         return $this->summary;
     }
 
-    public function setSummary(string $summary): EspnTeamRecordItem
+    public function setSummary(?string $summary): EspnTeamRecordItem
     {
         $this->summary = $summary;
         return $this;
