@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace HansPeterOrding\EspnApiClient\ApiClient;
 
+use HansPeterOrding\EspnApiClient\ApiClient\Denormalizers\EspnRefNormalizer;
 use Http\Client\Common\Plugin\ContentTypePlugin;
 use Http\Client\Common\Plugin\CookiePlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
@@ -22,6 +23,7 @@ use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -73,6 +75,7 @@ class EspnApiClientFactory
         ];
         $normalizers = [
             new UnwrappingDenormalizer(),
+            new EspnRefNormalizer(),
             new DateTimeNormalizer($defaultDateTimeContext),
             new ObjectNormalizer(
                 null,

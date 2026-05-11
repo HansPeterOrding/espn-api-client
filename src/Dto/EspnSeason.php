@@ -4,66 +4,104 @@ declare(strict_types=1);
 
 namespace HansPeterOrding\EspnApiClient\Dto;
 
+use DateTime;
+
 final class EspnSeason
 {
-    private int $year;
-    private ?int $type = null;
-    private ?string $name = null;
-    private string $displayName;
-    private ?int $half = null;
+    private ?int $year = null;
+    private ?DateTime $startDate = null;
+    private ?DateTime $endDate = null;
+    private ?string $displayName = null;
+    private ?string $typeReference = null;
+    private ?string $typesReference = null;
+    private ?string $rankingsReference = null;
+    private ?string $futuresReference = null;
 
-    public function getYear(): int
+    public function getYear(): ?int
     {
         return $this->year;
     }
 
-    public function setYear(int $year): EspnSeason
+    public function setYear(?int $year): EspnSeason
     {
         $this->year = $year;
         return $this;
     }
 
-    public function getType(): ?int
+    public function getStartDate(): ?DateTime
     {
-        return $this->type;
+        return $this->startDate;
     }
 
-    public function setType(?int $type): EspnSeason
+    public function setStartDate(?DateTime $startDate): EspnSeason
     {
-        $this->type = $type;
+        $this->startDate = $startDate;
         return $this;
     }
 
-    public function getName(): ?string
+    public function getEndDate(): ?DateTime
     {
-        return $this->name;
+        return $this->endDate;
     }
 
-    public function setName(?string $name): EspnSeason
+    public function setEndDate(?DateTime $endDate): EspnSeason
     {
-        $this->name = $name;
+        $this->endDate = $endDate;
         return $this;
     }
 
-    public function getDisplayName(): string
+    public function getDisplayName(): ?string
     {
         return $this->displayName;
     }
 
-    public function setDisplayName(string $displayName): EspnSeason
+    public function setDisplayName(?string $displayName): EspnSeason
     {
         $this->displayName = $displayName;
         return $this;
     }
 
-    public function getHalf(): ?int
+    public function getTypeReference(): ?string
     {
-        return $this->half;
+        return $this->typeReference;
     }
 
-    public function setHalf(?int $half): EspnSeason
+    public function setTypeReference(?string $typeReference): EspnSeason
     {
-        $this->half = $half;
+        $this->typeReference = $typeReference;
+        return $this;
+    }
+
+    public function getTypesReference(): ?string
+    {
+        return $this->typesReference;
+    }
+
+    public function setTypesReference(?string $typesReference): EspnSeason
+    {
+        $this->typesReference = $typesReference;
+        return $this;
+    }
+
+    public function getRankingsReference(): ?string
+    {
+        return $this->rankingsReference;
+    }
+
+    public function setRankingsReference(?string $rankingsReference): EspnSeason
+    {
+        $this->rankingsReference = $rankingsReference;
+        return $this;
+    }
+
+    public function getFuturesReference(): ?string
+    {
+        return $this->futuresReference;
+    }
+
+    public function setFuturesReference(?string $futuresReference): EspnSeason
+    {
+        $this->futuresReference = $futuresReference;
         return $this;
     }
 }

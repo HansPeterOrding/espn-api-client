@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace HansPeterOrding\EspnApiClient\ApiClient;
 
+use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\Season;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\Team;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\Venue;
 use HansPeterOrding\EspnApiClient\ApiClient\Exception\BadRequestException;
@@ -12,6 +13,7 @@ use HansPeterOrding\EspnApiClient\ApiClient\Exception\ForbiddenException;
 use HansPeterOrding\EspnApiClient\ApiClient\Exception\NotFoundException;
 use HansPeterOrding\EspnApiClient\ApiClient\Exception\ServerErrorException;
 use HansPeterOrding\EspnApiClient\ApiClient\Exception\UnauthorizedException;
+use HansPeterOrding\EspnApiSymfonyBundle\Entity\EspnTeam;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
@@ -124,9 +126,9 @@ class EspnApiClient implements EspnApiClientInterface
         }
     }
 
-    public function team(): Team
+    public function season(): Season
     {
-        return new Team($this);
+        return new Season($this);
     }
 
     public function venue(): Venue

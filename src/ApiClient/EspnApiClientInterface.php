@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace HansPeterOrding\EspnApiClient\ApiClient;
 
+use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\Season;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\Team;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\Venue;
 use Psr\Http\Client\ClientInterface;
@@ -41,7 +42,7 @@ interface EspnApiClientInterface
 
     public function deserializeJson(string $contents, ?string $return = null, $context = []);
 
-    public function team(): Team;
+    public function season(): Season;
 
     public function venue(): Venue;
 }
