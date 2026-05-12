@@ -6,26 +6,26 @@ namespace HansPeterOrding\EspnApiClient\Dto;
 
 final class EspnFranchise
 {
-    private ?string $id;
-    private ?string $uid;
-    private ?string $slug;
-    private ?string $location;
-    private ?string $name;
-    private ?string $nickname;
-    private ?string $abbreviation;
-    private ?string $displayName;
-    private ?string $shortDisplayName;
-    private ?string $color;
-    private ?bool $isActive;
-
-    private EspnVenue $venue;
+    private ?string $id = null;
+    private ?string $uid = null;
+    private ?string $slug = null;
+    private ?string $location = null;
+    private ?string $name = null;
+    private ?string $nickname = null;
+    private ?string $abbreviation = null;
+    private ?string $displayName = null;
+    private ?string $shortDisplayName = null;
+    private ?string $color = null;
+    private ?bool $isActive = null;
+    private ?string $venueReference = null;
+    private ?string $teamReference = null;
 
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function setId(?string $id): EspnFranchise
+    public function setId(?string $id): static
     {
         $this->id = $id;
         return $this;
@@ -36,7 +36,7 @@ final class EspnFranchise
         return $this->uid;
     }
 
-    public function setUid(?string $uid): EspnFranchise
+    public function setUid(?string $uid): static
     {
         $this->uid = $uid;
         return $this;
@@ -47,7 +47,7 @@ final class EspnFranchise
         return $this->slug;
     }
 
-    public function setSlug(?string $slug): EspnFranchise
+    public function setSlug(?string $slug): static
     {
         $this->slug = $slug;
         return $this;
@@ -58,7 +58,7 @@ final class EspnFranchise
         return $this->location;
     }
 
-    public function setLocation(?string $location): EspnFranchise
+    public function setLocation(?string $location): static
     {
         $this->location = $location;
         return $this;
@@ -69,7 +69,7 @@ final class EspnFranchise
         return $this->name;
     }
 
-    public function setName(?string $name): EspnFranchise
+    public function setName(?string $name): static
     {
         $this->name = $name;
         return $this;
@@ -80,7 +80,7 @@ final class EspnFranchise
         return $this->nickname;
     }
 
-    public function setNickname(?string $nickname): EspnFranchise
+    public function setNickname(?string $nickname): static
     {
         $this->nickname = $nickname;
         return $this;
@@ -91,7 +91,7 @@ final class EspnFranchise
         return $this->abbreviation;
     }
 
-    public function setAbbreviation(?string $abbreviation): EspnFranchise
+    public function setAbbreviation(?string $abbreviation): static
     {
         $this->abbreviation = $abbreviation;
         return $this;
@@ -102,7 +102,7 @@ final class EspnFranchise
         return $this->displayName;
     }
 
-    public function setDisplayName(?string $displayName): EspnFranchise
+    public function setDisplayName(?string $displayName): static
     {
         $this->displayName = $displayName;
         return $this;
@@ -113,7 +113,7 @@ final class EspnFranchise
         return $this->shortDisplayName;
     }
 
-    public function setShortDisplayName(?string $shortDisplayName): EspnFranchise
+    public function setShortDisplayName(?string $shortDisplayName): static
     {
         $this->shortDisplayName = $shortDisplayName;
         return $this;
@@ -124,7 +124,7 @@ final class EspnFranchise
         return $this->color;
     }
 
-    public function setColor(?string $color): EspnFranchise
+    public function setColor(?string $color): static
     {
         $this->color = $color;
         return $this;
@@ -135,20 +135,31 @@ final class EspnFranchise
         return $this->isActive;
     }
 
-    public function setIsActive(?bool $isActive): EspnFranchise
+    public function setIsActive(?bool $isActive): static
     {
         $this->isActive = $isActive;
         return $this;
     }
 
-    public function getVenue(): EspnVenue
+    public function getVenueReference(): ?string
     {
-        return $this->venue;
+        return $this->venueReference;
     }
 
-    public function setVenue(EspnVenue $venue): EspnFranchise
+    public function setVenueReference(?string $venueReference): static
     {
-        $this->venue = $venue;
+        $this->venueReference = $venueReference;
+        return $this;
+    }
+
+    public function getTeamReference(): ?string
+    {
+        return $this->teamReference;
+    }
+
+    public function setTeamReference(?string $teamReference): static
+    {
+        $this->teamReference = $teamReference;
         return $this;
     }
 }

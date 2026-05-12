@@ -25,7 +25,7 @@ final class EspnSeasonTeam
     /**
      * @var EspnImage[]
      */
-    private array $logos;
+    private array $logos = [];
 
     private ?string $recordReference = null;
     private ?string $oddsRecordsReference = null;
@@ -39,7 +39,7 @@ final class EspnSeasonTeam
     /**
      * @var EspnLink[]
      */
-    private array $links;
+    private array $links = [];
 
     private ?string $injuriesReference = null;
     private ?string $notesReference = null;

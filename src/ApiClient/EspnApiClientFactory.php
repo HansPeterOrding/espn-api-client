@@ -22,11 +22,14 @@ use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
 use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Serializer\Normalizer\NumberNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Normalizer\UnwrappingDenormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -73,16 +76,18 @@ class EspnApiClientFactory
             DateTimeNormalizer::FORMAT_KEY   => 'Y-m-d\TH:i\Z',   // Sekundenlos, 'Z' ist literal → escapen!
             DateTimeNormalizer::TIMEZONE_KEY => new \DateTimeZone('UTC'),
         ];
+        $classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
         $normalizers = [
             new UnwrappingDenormalizer(),
             new EspnRefNormalizer(),
             new DateTimeNormalizer($defaultDateTimeContext),
             new ObjectNormalizer(
-                null,
+                $classMetadataFactory,
                 new CamelCaseToSnakeCaseNameConverter(),
                 null,
                 propertyTypeExtractor: $propertyInfo
             ),
+            new NumberNormalizer(),
             new ArrayDenormalizer(),
 
         ];

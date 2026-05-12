@@ -8,22 +8,21 @@ final class EspnVenue
 {
     private ?string $id = null;
     private ?string $guid = null;
-    private string $fullName;
+    private ?string $fullName = null;
     private ?EspnVenueAddress $address = null;
     private ?bool $grass = null;
     private ?bool $indoor = null;
-
     /**
      * @var EspnImage[]
      */
-    private array $images;
+    private array $images = [];
 
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function setId(?string $id): EspnVenue
+    public function setId(?string $id): static
     {
         $this->id = $id;
         return $this;
@@ -34,18 +33,18 @@ final class EspnVenue
         return $this->guid;
     }
 
-    public function setGuid(?string $guid): EspnVenue
+    public function setGuid(?string $guid): static
     {
         $this->guid = $guid;
         return $this;
     }
 
-    public function getFullName(): string
+    public function getFullName(): ?string
     {
         return $this->fullName;
     }
 
-    public function setFullName(string $fullName): EspnVenue
+    public function setFullName(?string $fullName): static
     {
         $this->fullName = $fullName;
         return $this;
@@ -56,7 +55,7 @@ final class EspnVenue
         return $this->address;
     }
 
-    public function setAddress(?EspnVenueAddress $address): EspnVenue
+    public function setAddress(?EspnVenueAddress $address): static
     {
         $this->address = $address;
         return $this;
@@ -67,7 +66,7 @@ final class EspnVenue
         return $this->grass;
     }
 
-    public function setGrass(?bool $grass): EspnVenue
+    public function setGrass(?bool $grass): static
     {
         $this->grass = $grass;
         return $this;
@@ -78,7 +77,7 @@ final class EspnVenue
         return $this->indoor;
     }
 
-    public function setIndoor(?bool $indoor): EspnVenue
+    public function setIndoor(?bool $indoor): static
     {
         $this->indoor = $indoor;
         return $this;
@@ -89,7 +88,7 @@ final class EspnVenue
         return $this->images;
     }
 
-    public function setImages(array $images): EspnVenue
+    public function setImages(array $images): static
     {
         $this->images = $images;
         return $this;

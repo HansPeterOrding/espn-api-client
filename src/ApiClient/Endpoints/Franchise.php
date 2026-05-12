@@ -5,21 +5,23 @@ declare(strict_types=1);
 namespace HansPeterOrding\EspnApiClient\ApiClient\Endpoints;
 
 use HansPeterOrding\EspnApiClient\ApiClient\EspnApiClientInterface;
-use HansPeterOrding\EspnApiClient\Dto\EspnVenue;
+use HansPeterOrding\EspnApiClient\Dto\EspnFranchise;
+use HansPeterOrding\EspnApiClient\Dto\EspnSchedule;
+use HansPeterOrding\EspnApiClient\Dto\EspnSeasonTeam;
 use Symfony\Component\Serializer\Normalizer\UnwrappingDenormalizer;
 
-class Venue extends AbstractEndpoint {
-    const URL_TEMPLATE_VENUES = 'venues';
-    const URL_TEMPLATE_VENUE = 'venues/%d';
+class Franchise extends AbstractEndpoint {
+    const URL_TEMPLATE_FRANCHISES = 'franchises';
+    const URL_TEMPLATE_FRANCHISE = 'franchises/%d';
 
     public function listRefs(): array
     {
         $url = $this->uri(
             sprintf(
-                self::URL_TEMPLATE_VENUES
+                self::URL_TEMPLATE_FRANCHISES
             ),
             [
-                'limit' => 1000
+                'limit' => 100
             ],
             EspnApiClientInterface::BASE_URI_SPORTS_CORE
         );
@@ -34,13 +36,13 @@ class Venue extends AbstractEndpoint {
     }
 
     public function get(
-        int $venueId,
-    ): ?EspnVenue
+        int $franchiseId,
+    ): ?EspnFranchise
     {
         $url = $this->uri(
             sprintf(
-                self::URL_TEMPLATE_VENUE,
-                $venueId
+                self::URL_TEMPLATE_FRANCHISE,
+                $franchiseId
             ),
             [],
             EspnApiClientInterface::BASE_URI_SPORTS_CORE
@@ -48,7 +50,7 @@ class Venue extends AbstractEndpoint {
 
         return $this->espnApiClient->get(
             $url,
-            EspnVenue::class,
+            EspnFranchise::class,
         );
     }
 }

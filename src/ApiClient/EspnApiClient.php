@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace HansPeterOrding\EspnApiClient\ApiClient;
 
+use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\Franchise;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\Season;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\Team;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\Venue;
@@ -124,6 +125,11 @@ class EspnApiClient implements EspnApiClientInterface
         if ($response->getStatusCode() >= 500 && $response->getStatusCode() <= 599) {
             throw ServerErrorException::create($request, $response);
         }
+    }
+
+    public function franchise(): Franchise
+    {
+        return new Franchise($this);
     }
 
     public function season(): Season
