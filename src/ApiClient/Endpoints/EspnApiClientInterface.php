@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace HansPeterOrding\EspnApiClient\ApiClient;
 
-use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\EspnAthletes;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\EspnEvents;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\EspnFranchises;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\EspnPositions;
@@ -26,32 +25,19 @@ interface EspnApiClientInterface
     public const USER_AGENT = 'EspnApiClient 1.0';
 
     public function getClient(): ClientInterface;
-
     public function getUriFactory(): UriFactoryInterface;
-
     public function getRequestFactory(): RequestFactoryInterface;
-
     public function getSerializer(): SerializerInterface;
 
     public function get(UriInterface $uri, ?string $returnType = null, $context = []);
-
     public function getJson(UriInterface $uri);
-
     public function decodeJson(UriInterface $uri);
-
     public function denormalize(mixed $content, ?string $returnType = null, ?string $format = null, array $context = []);
-
     public function deserializeJson(string $contents, ?string $returnType = null, $context = []);
 
     public function seasons(): EspnSeasons;
-
     public function venues(): EspnVenues;
-
     public function franchises(): EspnFranchises;
-
     public function events(): EspnEvents;
-
     public function positions(): EspnPositions;
-
-    public function athletes(): EspnAthletes;
 }

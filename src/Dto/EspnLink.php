@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace HansPeterOrding\EspnApiClient\Dto;
 
-use DateTime;
-
 final class EspnLink
 {
     private ?string $language = null;
+
+    /**
+     * @var string[]
+     */
     private array $rel = [];
+
     private ?string $href = null;
     private ?string $text = null;
     private ?string $shortText = null;

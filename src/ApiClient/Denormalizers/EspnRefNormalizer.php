@@ -25,31 +25,62 @@ class EspnRefNormalizer implements DenormalizerInterface, DenormalizerAwareInter
 
     private function transformRefs(array $data): array
     {
-        foreach ($data as $key => $value) {
-            if (is_array($value)) {
-                // Check: Ist das ein Objekt mit einer $ref?
-                if (isset($value['$ref'])) {
-                    // Erzeuge neuen Key: aus "type" wird "typeReference"
-                    // Du kannst hier auch "Link" oder sonst was wählen
-                    $newKey = $key . 'Reference';
-                    $data[$newKey] = $value['$ref'];
+        $transformed = [];
 
-                    // Wenn das Objekt NUR aus $ref bestand oder wir den Rest ignorieren wollen:
-                    // Wir löschen das Original-Objekt "type", damit der Serializer nicht mehr darüber stolpert
-                    unset($data[$key]);
-                } else {
-                    // Rekursiv weiter suchen (für tiefe Verschachtelungen)
-                    $data[$key] = $this->transformRefs($value);
-                }
+        foreach ($data as $key => $value) {
+            // Falls wir auf der numerischen Ebene einer Liste sind (z.B. Index 0, 1, 2)
+            // wollen wir den Key nicht verändern, sondern nur den Inhalt transformieren
+            if (is_int($key) && is_array($value)) {
+                $transformed[$key] = $this->transformRefs($value);
+                continue;
             }
 
-            // Optional: $ref auf oberster Ebene entfernen
-            if ($key === '$ref') {
-                unset($data['$ref']);
+            if (is_array($value)) {
+                // FALL 1: Einzelnes Ref-Objekt -> "venue": {"$ref": "..."}
+                if (isset($value['$ref'])) {
+                    $transformed[$key . 'Reference'] = $value['$ref'];
+                    continue;
+                }
+
+                // FALL 2: Liste von Ref-Objekten -> "competitors": [{"$ref": "..."}, {"$ref": "..."}]
+                if ($this->isRefArray($value)) {
+                    $transformed[$key . 'References'] = array_map(
+                        static fn(array $item): string => $item['$ref'],
+                        $value
+                    );
+                    continue;
+                }
+
+                // FALL 3: Normales verschachteltes Array -> Rekursion
+                $transformed[$key] = $this->transformRefs($value);
+                continue;
+            }
+
+            // Alle Skalare (Strings, Ints, etc.) einfach behalten
+            if ($key !== '$ref') {
+                $transformed[$key] = $value;
             }
         }
 
-        return $data;
+        return $transformed;
+    }
+
+    /**
+     * Hilfsmethode: Prüft, ob es sich um eine flache Liste von $ref-Objekten handelt.
+     */
+    private function isRefArray(array $array): bool
+    {
+        if (empty($array)) {
+            return false;
+        }
+
+        foreach ($array as $item) {
+            if (!is_array($item) || !isset($item['$ref'])) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool

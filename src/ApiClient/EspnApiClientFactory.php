@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace HansPeterOrding\EspnApiClient\ApiClient;
 
 use HansPeterOrding\EspnApiClient\ApiClient\Denormalizers\EspnRefNormalizer;
+use HansPeterOrding\EspnApiClient\ApiClient\Denormalizers\EspnRefArrayNormalizer;
 use Http\Client\Common\Plugin\ContentTypePlugin;
 use Http\Client\Common\Plugin\CookiePlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
@@ -80,14 +81,15 @@ class EspnApiClientFactory
         $normalizers = [
             new UnwrappingDenormalizer(),
             new EspnRefNormalizer(),
+            new EspnRefArrayNormalizer(),
             new DateTimeNormalizer($defaultDateTimeContext),
+            new NumberNormalizer(),
             new ObjectNormalizer(
                 $classMetadataFactory,
                 new CamelCaseToSnakeCaseNameConverter(),
                 null,
                 propertyTypeExtractor: $propertyInfo
             ),
-            new NumberNormalizer(),
             new ArrayDenormalizer(),
 
         ];

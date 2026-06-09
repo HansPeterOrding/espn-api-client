@@ -4,16 +4,19 @@ declare(strict_types=1);
 
 namespace HansPeterOrding\EspnApiClient\Dto;
 
-use DateTime;
-
 final class EspnImage
 {
     private ?string $href = null;
     private ?int $width = null;
     private ?int $height = null;
     private ?string $alt = null;
+
+    /**
+     * @var string[]
+     */
     private array $rel = [];
-    private ?DateTime $lastUpdated = null;
+
+    private ?string $lastUpdated = null;
 
     public function getHref(): ?string
     {
@@ -70,12 +73,12 @@ final class EspnImage
         return $this;
     }
 
-    public function getLastUpdated(): ?DateTime
+    public function getLastUpdated(): ?string
     {
         return $this->lastUpdated;
     }
 
-    public function setLastUpdated(?DateTime $lastUpdated): static
+    public function setLastUpdated(?string $lastUpdated): static
     {
         $this->lastUpdated = $lastUpdated;
         return $this;

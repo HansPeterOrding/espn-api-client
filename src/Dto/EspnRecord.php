@@ -5,22 +5,25 @@ declare(strict_types=1);
 namespace HansPeterOrding\EspnApiClient\Dto;
 
 use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 
-final class EspnSeasonTypeTeamRecord
+final class EspnRecord
 {
     private ?string $id = null;
     private ?string $name = null;
+    private ?string $displayName = null;
+    private ?string $shortDisplayName = null;
+    private ?string $description = null;
     private ?string $abbreviation = null;
     private ?string $type = null;
     private ?string $summary = null;
     private ?string $displayValue = null;
-    #[Context([
-        'disable_type_enforcement' => true
-    ])]
+
+    #[Context(denormalizationContext: [AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => true])]
     private ?string $value = null;
 
     /**
-     * @var EspnSeasonTypeTeamRecordStat[]
+     * @var EspnRecordStat[]
      */
     private array $stats = [];
 
@@ -43,6 +46,39 @@ final class EspnSeasonTypeTeamRecord
     public function setName(?string $name): static
     {
         $this->name = $name;
+        return $this;
+    }
+
+    public function getDisplayName(): ?string
+    {
+        return $this->displayName;
+    }
+
+    public function setDisplayName(?string $displayName): static
+    {
+        $this->displayName = $displayName;
+        return $this;
+    }
+
+    public function getShortDisplayName(): ?string
+    {
+        return $this->shortDisplayName;
+    }
+
+    public function setShortDisplayName(?string $shortDisplayName): static
+    {
+        $this->shortDisplayName = $shortDisplayName;
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
         return $this;
     }
 
@@ -101,18 +137,11 @@ final class EspnSeasonTypeTeamRecord
         return $this;
     }
 
-    /**
-     * @return EspnSeasonTypeTeamRecordStat[]
-     */
     public function getStats(): array
     {
         return $this->stats;
     }
 
-    /**
-     * @param EspnSeasonTypeTeamRecordStat[] $stats
-     * @return $this
-     */
     public function setStats(array $stats): static
     {
         $this->stats = $stats;

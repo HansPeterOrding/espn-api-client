@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace HansPeterOrding\EspnApiClient\Dto;
 
 use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 
-final class EspnSeasonTypeTeamRecordStat
+final class EspnRecordStat
 {
     private ?string $name = null;
     private ?string $displayName = null;
@@ -14,10 +15,10 @@ final class EspnSeasonTypeTeamRecordStat
     private ?string $description = null;
     private ?string $abbreviation = null;
     private ?string $type = null;
-    #[Context([
-        'disable_type_enforcement' => true
-    ])]
+
+    #[Context(denormalizationContext: [AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => true])]
     private ?string $value = null;
+
     private ?string $displayValue = null;
 
     public function getName(): ?string

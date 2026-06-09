@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace HansPeterOrding\EspnApiClient\Dto;
 
-final class EspnVenueAddress
+final class EspnAddress
 {
     private ?string $city = null;
     private ?string $state = null;

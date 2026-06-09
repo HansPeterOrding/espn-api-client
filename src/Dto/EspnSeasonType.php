@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace HansPeterOrding\EspnApiClient\Dto;
 
-use DateTime;
-
 final class EspnSeasonType
 {
     private ?string $id = null;
@@ -13,22 +11,23 @@ final class EspnSeasonType
     private ?string $name = null;
     private ?string $abbreviation = null;
     private ?int $year = null;
-    private ?DateTime $startDate = null;
-    private ?DateTime $endDate = null;
+    private ?string $startDate = null;
+    private ?string $endDate = null;
     private ?bool $hasGroups = null;
     private ?bool $hasStandings = null;
     private ?bool $hasLegs = null;
+    private ?string $slug = null;
     private ?string $groupsReference = null;
     private ?string $weeksReference = null;
     private ?string $correctionsReference = null;
-    private ?string $slug = null;
+    private ?string $leadersReference = null;
 
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function setId(?string $id): EspnSeasonType
+    public function setId(?string $id): static
     {
         $this->id = $id;
         return $this;
@@ -39,7 +38,7 @@ final class EspnSeasonType
         return $this->type;
     }
 
-    public function setType(?int $type): EspnSeasonType
+    public function setType(?int $type): static
     {
         $this->type = $type;
         return $this;
@@ -50,7 +49,7 @@ final class EspnSeasonType
         return $this->name;
     }
 
-    public function setName(?string $name): EspnSeasonType
+    public function setName(?string $name): static
     {
         $this->name = $name;
         return $this;
@@ -61,7 +60,7 @@ final class EspnSeasonType
         return $this->abbreviation;
     }
 
-    public function setAbbreviation(?string $abbreviation): EspnSeasonType
+    public function setAbbreviation(?string $abbreviation): static
     {
         $this->abbreviation = $abbreviation;
         return $this;
@@ -72,29 +71,29 @@ final class EspnSeasonType
         return $this->year;
     }
 
-    public function setYear(?int $year): EspnSeasonType
+    public function setYear(?int $year): static
     {
         $this->year = $year;
         return $this;
     }
 
-    public function getStartDate(): ?DateTime
+    public function getStartDate(): ?string
     {
         return $this->startDate;
     }
 
-    public function setStartDate(?DateTime $startDate): EspnSeasonType
+    public function setStartDate(?string $startDate): static
     {
         $this->startDate = $startDate;
         return $this;
     }
 
-    public function getEndDate(): ?DateTime
+    public function getEndDate(): ?string
     {
         return $this->endDate;
     }
 
-    public function setEndDate(?DateTime $endDate): EspnSeasonType
+    public function setEndDate(?string $endDate): static
     {
         $this->endDate = $endDate;
         return $this;
@@ -105,7 +104,7 @@ final class EspnSeasonType
         return $this->hasGroups;
     }
 
-    public function setHasGroups(?bool $hasGroups): EspnSeasonType
+    public function setHasGroups(?bool $hasGroups): static
     {
         $this->hasGroups = $hasGroups;
         return $this;
@@ -116,7 +115,7 @@ final class EspnSeasonType
         return $this->hasStandings;
     }
 
-    public function setHasStandings(?bool $hasStandings): EspnSeasonType
+    public function setHasStandings(?bool $hasStandings): static
     {
         $this->hasStandings = $hasStandings;
         return $this;
@@ -127,9 +126,20 @@ final class EspnSeasonType
         return $this->hasLegs;
     }
 
-    public function setHasLegs(?bool $hasLegs): EspnSeasonType
+    public function setHasLegs(?bool $hasLegs): static
     {
         $this->hasLegs = $hasLegs;
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): static
+    {
+        $this->slug = $slug;
         return $this;
     }
 
@@ -138,7 +148,7 @@ final class EspnSeasonType
         return $this->groupsReference;
     }
 
-    public function setGroupsReference(?string $groupsReference): EspnSeasonType
+    public function setGroupsReference(?string $groupsReference): static
     {
         $this->groupsReference = $groupsReference;
         return $this;
@@ -149,7 +159,7 @@ final class EspnSeasonType
         return $this->weeksReference;
     }
 
-    public function setWeeksReference(?string $weeksReference): EspnSeasonType
+    public function setWeeksReference(?string $weeksReference): static
     {
         $this->weeksReference = $weeksReference;
         return $this;
@@ -160,20 +170,20 @@ final class EspnSeasonType
         return $this->correctionsReference;
     }
 
-    public function setCorrectionsReference(?string $correctionsReference): EspnSeasonType
+    public function setCorrectionsReference(?string $correctionsReference): static
     {
         $this->correctionsReference = $correctionsReference;
         return $this;
     }
 
-    public function getSlug(): ?string
+    public function getLeadersReference(): ?string
     {
-        return $this->slug;
+        return $this->leadersReference;
     }
 
-    public function setSlug(?string $slug): EspnSeasonType
+    public function setLeadersReference(?string $leadersReference): static
     {
-        $this->slug = $slug;
+        $this->leadersReference = $leadersReference;
         return $this;
     }
 }

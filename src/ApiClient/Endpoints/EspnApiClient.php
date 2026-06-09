@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace HansPeterOrding\EspnApiClient\ApiClient;
 
-use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\EspnAthletes;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\EspnEvents;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\EspnFranchises;
 use HansPeterOrding\EspnApiClient\ApiClient\Endpoints\EspnPositions;
@@ -27,12 +26,11 @@ use Symfony\Component\Serializer\SerializerInterface;
 class EspnApiClient implements EspnApiClientInterface
 {
     public function __construct(
-        private readonly ClientInterface         $client,
-        private readonly UriFactoryInterface     $uriFactory,
+        private readonly ClientInterface $client,
+        private readonly UriFactoryInterface $uriFactory,
         private readonly RequestFactoryInterface $requestFactory,
-        private readonly SerializerInterface     $serializer,
-    )
-    {
+        private readonly SerializerInterface $serializer,
+    ) {
     }
 
     public function getClient(): ClientInterface
@@ -152,10 +150,5 @@ class EspnApiClient implements EspnApiClientInterface
     public function positions(): EspnPositions
     {
         return new EspnPositions($this);
-    }
-
-    public function athletes(): EspnAthletes
-    {
-        return new EspnAthletes($this);
     }
 }

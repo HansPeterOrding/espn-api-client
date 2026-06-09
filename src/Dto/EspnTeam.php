@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace HansPeterOrding\EspnApiClient\Dto;
 
-final class EspnSeasonTeam
+final class EspnTeam
 {
     private ?string $id = null;
     private ?string $guid = null;
@@ -27,6 +27,11 @@ final class EspnSeasonTeam
      */
     private array $logos = [];
 
+    /**
+     * @var EspnLink[]
+     */
+    private array $links = [];
+
     private ?string $recordReference = null;
     private ?string $oddsRecordsReference = null;
     private ?string $athletesReference = null;
@@ -35,12 +40,6 @@ final class EspnSeasonTeam
     private ?string $ranksReference = null;
     private ?string $statisticsReference = null;
     private ?string $leadersReference = null;
-
-    /**
-     * @var EspnLink[]
-     */
-    private array $links = [];
-
     private ?string $injuriesReference = null;
     private ?string $notesReference = null;
     private ?string $againstTheSpreadRecordsReference = null;
@@ -229,6 +228,17 @@ final class EspnSeasonTeam
         return $this;
     }
 
+    public function getLinks(): array
+    {
+        return $this->links;
+    }
+
+    public function setLinks(array $links): static
+    {
+        $this->links = $links;
+        return $this;
+    }
+
     public function getRecordReference(): ?string
     {
         return $this->recordReference;
@@ -314,17 +324,6 @@ final class EspnSeasonTeam
     public function setLeadersReference(?string $leadersReference): static
     {
         $this->leadersReference = $leadersReference;
-        return $this;
-    }
-
-    public function getLinks(): array
-    {
-        return $this->links;
-    }
-
-    public function setLinks(array $links): static
-    {
-        $this->links = $links;
         return $this;
     }
 
