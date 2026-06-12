@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace HansPeterOrding\EspnApiClient\ApiClient\Endpoints;
 
 use HansPeterOrding\EspnApiClient\Dto\EspnAthlete;
-use HansPeterOrding\EspnApiClient\Dto\EspnContract;
 
 class EspnAthletes extends AbstractEndpoint
 {
-    const URL_TEMPLATE_SEASON_ATHLETES = 'seasons/%d/athletes';
-    const URL_TEMPLATE_SEASON_ATHLETE = 'seasons/%d/athletes/%d';
-    const URL_TEMPLATE_SEASON_TEAM_ATHLETES = 'seasons/%d/teams/%d/athletes';
+    const string URL_TEMPLATE_SEASON_ATHLETES = 'seasons/%d/athletes';
+    const string URL_TEMPLATE_SEASON_ATHLETE = 'seasons/%d/athletes/%d';
+    const string URL_TEMPLATE_SEASON_TEAM_ATHLETES = 'seasons/%d/teams/%d/athletes';
 
     public function get(int $year, int $athleteId): ?EspnAthlete
     {

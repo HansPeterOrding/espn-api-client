@@ -8,8 +8,8 @@ use HansPeterOrding\EspnApiClient\Dto\EspnPosition;
 
 class EspnPositions extends AbstractEndpoint
 {
-    const URL_TEMPLATE_POSITIONS = 'positions';
-    const URL_TEMPLATE_POSITION = 'positions/%d';
+    const string URL_TEMPLATE_POSITIONS = 'positions';
+    const string URL_TEMPLATE_POSITION = 'positions/%d';
 
     public function get(int $positionId): ?EspnPosition
     {

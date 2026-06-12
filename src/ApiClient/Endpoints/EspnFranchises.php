@@ -8,8 +8,8 @@ use HansPeterOrding\EspnApiClient\Dto\EspnFranchise;
 
 class EspnFranchises extends AbstractEndpoint
 {
-    const URL_TEMPLATE_FRANCHISES = 'franchises';
-    const URL_TEMPLATE_FRANCHISE = 'franchises/%d';
+    const string URL_TEMPLATE_FRANCHISES = 'franchises';
+    const string URL_TEMPLATE_FRANCHISE = 'franchises/%d';
 
     public function get(int $franchiseId): ?EspnFranchise
     {

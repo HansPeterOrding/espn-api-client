@@ -8,8 +8,8 @@ use HansPeterOrding\EspnApiClient\Dto\EspnNote;
 
 class EspnNotes extends AbstractEndpoint
 {
-    const URL_TEMPLATE_SEASON_ATHLETE_NOTES = 'seasons/%d/athletes/%d/notes';
-    const URL_TEMPLATE_TEAM_NOTES = 'teams/%d/notes';
+    const string URL_TEMPLATE_SEASON_ATHLETE_NOTES = 'seasons/%d/athletes/%d/notes';
+    const string URL_TEMPLATE_TEAM_NOTES = 'teams/%d/notes';
 
     /**
      * @return EspnNote[]

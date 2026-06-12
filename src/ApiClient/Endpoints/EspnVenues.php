@@ -8,8 +8,8 @@ use HansPeterOrding\EspnApiClient\Dto\EspnVenue;
 
 class EspnVenues extends AbstractEndpoint
 {
-    const URL_TEMPLATE_VENUES = 'venues';
-    const URL_TEMPLATE_VENUE = 'venues/%d';
+    const string URL_TEMPLATE_VENUES = 'venues';
+    const string URL_TEMPLATE_VENUE = 'venues/%d';
 
     public function get(int $venueId): ?EspnVenue
     {

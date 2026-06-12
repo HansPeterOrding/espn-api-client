@@ -8,9 +8,9 @@ use HansPeterOrding\EspnApiClient\Dto\EspnRecord;
 
 class EspnRecords extends AbstractEndpoint
 {
-    const URL_TEMPLATE_SEASON_TYPE_TEAM_RECORDS = 'seasons/%d/types/%d/teams/%d/records';
-    const URL_TEMPLATE_SEASON_TYPE_TEAM_RECORD = 'seasons/%d/types/%d/teams/%d/records/%d';
-    const URL_TEMPLATE_SEASON_TYPE_GROUP_TEAM_RECORD = 'seasons/%d/types/%d/groups/%d/teams/%d/records/%d';
+    const string URL_TEMPLATE_SEASON_TYPE_TEAM_RECORDS = 'seasons/%d/types/%d/teams/%d/records';
+    const string URL_TEMPLATE_SEASON_TYPE_TEAM_RECORD = 'seasons/%d/types/%d/teams/%d/records/%d';
+    const string URL_TEMPLATE_SEASON_TYPE_GROUP_TEAM_RECORD = 'seasons/%d/types/%d/groups/%d/teams/%d/records/%d';
 
     public function get(int $year, int $typeId, int $teamId, int $recordId): ?EspnRecord
     {

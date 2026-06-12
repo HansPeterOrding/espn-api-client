@@ -11,14 +11,16 @@ abstract class AbstractEndpoint
 {
     public function __construct(
         protected readonly EspnApiClientInterface $espnApiClient,
-    ) {
+    )
+    {
     }
 
     public function uri(
         string $path,
-        array $attributes = [],
+        array  $attributes = [],
         string $baseUri = EspnApiClientInterface::BASE_URI_SPORTS_CORE
-    ): UriInterface {
+    ): UriInterface
+    {
         $uri = $baseUri . $path;
         if ($attributes) {
             $uri .= '?' . preg_replace('/%5B[0-9]+%5D/simU', '%5B%5D', http_build_query($attributes));

@@ -8,8 +8,8 @@ use HansPeterOrding\EspnApiClient\Dto\EspnSeason;
 
 class EspnSeasons extends AbstractEndpoint
 {
-    const URL_TEMPLATE_SEASONS = 'seasons';
-    const URL_TEMPLATE_SEASON = 'seasons/%d';
+    const string URL_TEMPLATE_SEASONS = 'seasons';
+    const string URL_TEMPLATE_SEASON = 'seasons/%d';
 
     public function get(int $year): ?EspnSeason
     {

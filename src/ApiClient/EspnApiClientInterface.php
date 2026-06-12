@@ -18,12 +18,12 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 interface EspnApiClientInterface
 {
-    public const BASE_URI_SITE = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/';
-    public const BASE_URI_SPORTS_CORE = 'https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/';
+    public const string BASE_URI_SITE = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/';
+    public const string BASE_URI_SPORTS_CORE = 'https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/';
 
-    public const CONTENT_TYPE_JSON = 'application/json';
-    public const ACCEPT_JSON = self::CONTENT_TYPE_JSON;
-    public const USER_AGENT = 'EspnApiClient 1.0';
+    public const string CONTENT_TYPE_JSON = 'application/json';
+    public const string ACCEPT_JSON = self::CONTENT_TYPE_JSON;
+    public const string USER_AGENT = 'EspnApiClient 1.0';
 
     public function getClient(): ClientInterface;
 

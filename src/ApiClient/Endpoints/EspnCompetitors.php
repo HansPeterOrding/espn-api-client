@@ -8,8 +8,8 @@ use HansPeterOrding\EspnApiClient\Dto\EspnCompetitor;
 
 class EspnCompetitors extends AbstractEndpoint
 {
-    const URL_TEMPLATE_EVENT_COMPETITION_COMPETITORS = 'events/%d/competitions/%d/competitors';
-    const URL_TEMPLATE_EVENT_COMPETITION_COMPETITOR = 'events/%d/competitions/%d/competitors/%d';
+    const string URL_TEMPLATE_EVENT_COMPETITION_COMPETITORS = 'events/%d/competitions/%d/competitors';
+    const string URL_TEMPLATE_EVENT_COMPETITION_COMPETITOR = 'events/%d/competitions/%d/competitors/%d';
 
     public function get(int $eventId, int $competitionId, int $competitorId): ?EspnCompetitor
     {
