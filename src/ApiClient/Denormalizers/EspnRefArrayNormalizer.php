@@ -10,7 +10,7 @@ class EspnRefArrayNormalizer implements DenormalizerInterface, DenormalizerAware
 {
     use DenormalizerAwareTrait;
 
-    private const ALREADY_CALLED = 'ESPN_REF_ARRAY_DENORMALIZER_ALREADY_CALLED';
+    private const string ALREADY_CALLED = 'ESPN_REF_ARRAY_DENORMALIZER_ALREADY_CALLED';
 
     public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
@@ -32,17 +32,14 @@ class EspnRefArrayNormalizer implements DenormalizerInterface, DenormalizerAware
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): array
     {
-        // Set the flag so this denormalizer steps aside during the next recursive cycle
         $context[self::ALREADY_CALLED] = true;
 
         $references = [];
 
-        foreach($element as $referenceContainingArray) {
+        foreach ($data as $referenceContainingArray) {
             $references[] = $referenceContainingArray['$ref'];
         }
 
-        // 2. Pass the flat array back into the main chain so the core ArrayDenormalizer
-        // or EspnRefNormalizer can inject it into your DTO target safely.
         return $this->denormalizer->denormalize($references, $type, $format, $context);
     }
 

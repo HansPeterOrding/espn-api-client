@@ -7,4 +7,5 @@ namespace HansPeterOrding\EspnApiClient\ApiClient\Exception;
 use Http\Client\Exception\HttpException;
 
 class BadRequestException extends HttpException
-{}
+{
+}

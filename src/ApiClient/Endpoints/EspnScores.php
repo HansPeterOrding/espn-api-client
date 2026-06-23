@@ -8,7 +8,7 @@ use HansPeterOrding\EspnApiClient\Dto\EspnScore;
 
 class EspnScores extends AbstractEndpoint
 {
-    const URL_TEMPLATE_EVENT_COMPETITION_COMPETITOR_SCORE = 'events/%d/competitions/%d/competitors/%d/score';
+    const string URL_TEMPLATE_EVENT_COMPETITION_COMPETITOR_SCORE = 'events/%d/competitions/%d/competitors/%d/score';
 
     public function get(int $eventId, int $competitionId, int $competitorId): ?EspnScore
     {

@@ -8,7 +8,7 @@ use HansPeterOrding\EspnApiClient\Dto\EspnCompetitionStatus;
 
 class EspnCompetitionStatuses extends AbstractEndpoint
 {
-    const URL_TEMPLATE_EVENT_COMPETITION_STATUS = 'events/%d/competitions/%d/status';
+    const string URL_TEMPLATE_EVENT_COMPETITION_STATUS = 'events/%d/competitions/%d/status';
 
     public function get(int $eventId, int $competitionId): ?EspnCompetitionStatus
     {

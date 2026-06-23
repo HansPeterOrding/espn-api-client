@@ -8,8 +8,8 @@ use HansPeterOrding\EspnApiClient\Dto\EspnEvent;
 
 class EspnEvents extends AbstractEndpoint
 {
-    const URL_TEMPLATE_EVENT = 'events/%d';
-    const URL_TEMPLATE_SEASON_TYPE_WEEK_EVENTS = 'seasons/%d/types/%d/weeks/%d/events';
+    const string URL_TEMPLATE_EVENT = 'events/%d';
+    const string URL_TEMPLATE_SEASON_TYPE_WEEK_EVENTS = 'seasons/%d/types/%d/weeks/%d/events';
 
     public function get(int $eventId): ?EspnEvent
     {

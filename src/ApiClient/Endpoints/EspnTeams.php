@@ -8,10 +8,10 @@ use HansPeterOrding\EspnApiClient\Dto\EspnTeam;
 
 class EspnTeams extends AbstractEndpoint
 {
-    const URL_TEMPLATE_SEASON_TEAMS = 'seasons/%d/teams';
-    const URL_TEMPLATE_SEASON_TEAM = 'seasons/%d/teams/%d';
-    const URL_TEMPLATE_SEASON_TYPE_GROUP_TEAMS = 'seasons/%d/types/%d/groups/%d/teams';
-    const URL_TEMPLATE_SEASON_TYPE_GROUP_TEAM = 'seasons/%d/types/%d/groups/%d/teams/%d';
+    const string URL_TEMPLATE_SEASON_TEAMS = 'seasons/%d/teams';
+    const string URL_TEMPLATE_SEASON_TEAM = 'seasons/%d/teams/%d';
+    const string URL_TEMPLATE_SEASON_TYPE_GROUP_TEAMS = 'seasons/%d/types/%d/groups/%d/teams';
+    const string URL_TEMPLATE_SEASON_TYPE_GROUP_TEAM = 'seasons/%d/types/%d/groups/%d/teams/%d';
 
     public function get(int $year, int $teamId): ?EspnTeam
     {

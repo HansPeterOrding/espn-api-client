@@ -24,13 +24,13 @@ use Psr\Http\Message\UriFactoryInterface;
 use Psr\Http\Message\UriInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
-class EspnApiClient implements EspnApiClientInterface
+readonly class EspnApiClient implements EspnApiClientInterface
 {
     public function __construct(
-        private readonly ClientInterface         $client,
-        private readonly UriFactoryInterface     $uriFactory,
-        private readonly RequestFactoryInterface $requestFactory,
-        private readonly SerializerInterface     $serializer,
+        private ClientInterface         $client,
+        private UriFactoryInterface     $uriFactory,
+        private RequestFactoryInterface $requestFactory,
+        private SerializerInterface     $serializer,
     )
     {
     }
@@ -66,7 +66,7 @@ class EspnApiClient implements EspnApiClientInterface
         return $this->deserializeJson($contents, $returnType, $context);
     }
 
-    public function getJson(UriInterface $uri)
+    public function getJson(UriInterface $uri): ?string
     {
         $request = $this->requestFactory->createRequest('GET', $uri);
         $response = $this->client->sendRequest($request);

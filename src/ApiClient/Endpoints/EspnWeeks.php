@@ -8,8 +8,8 @@ use HansPeterOrding\EspnApiClient\Dto\EspnWeek;
 
 class EspnWeeks extends AbstractEndpoint
 {
-    const URL_TEMPLATE_SEASON_TYPE_WEEKS = 'seasons/%d/types/%d/weeks';
-    const URL_TEMPLATE_SEASON_TYPE_WEEK = 'seasons/%d/types/%d/weeks/%d';
+    const string URL_TEMPLATE_SEASON_TYPE_WEEKS = 'seasons/%d/types/%d/weeks';
+    const string URL_TEMPLATE_SEASON_TYPE_WEEK = 'seasons/%d/types/%d/weeks/%d';
 
     public function get(int $year, int $typeId, int $weekNumber): ?EspnWeek
     {
